@@ -80,14 +80,7 @@ def message_received(client,server,msg):
         del sessions[ses]
         sock.close()
         
-def saveLive():
-    global client_count
-    data = json.load(open("web/live.json"))
-    data[server_name] = {"clients":client_count}
-    raw = json.dumps(data)
-    f = open("web/live.json","w")
-    f.write(raw)
-    f.close()
+def saveLive(): pass
     
 server = WebsocketServer(8651+(portoffest*2), host='127.0.0.1', loglevel=logging.INFO)
 server.set_fn_new_client(new_client)
